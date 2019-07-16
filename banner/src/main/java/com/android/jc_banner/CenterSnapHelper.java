@@ -26,7 +26,7 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
                     super.onScrollStateChanged(recyclerView, newState);
                     final BannerLayoutManager layoutManager =
                             (BannerLayoutManager) recyclerView.getLayoutManager();
-                    if (layoutManager==null){
+                    if (layoutManager == null) {
                         return;
                     }
                     final BannerLayoutManager.OnPageChangeListener onPageChangeListener =
@@ -97,10 +97,12 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
         } else if (layoutManager.mOrientation == BannerLayoutManager.HORIZONTAL
                 && Math.abs(velocityX) > minFlingVelocity) {
             final int currentPosition = layoutManager.getCurrentPosition();
-             int offsetPosition = (int) (mGravityScroller.getFinalX() /
+            int offsetPosition = (int) (mGravityScroller.getFinalX() /
                     layoutManager.mInterval / layoutManager.getDistanceRatio());
-            if (offsetPosition>1){
-                offsetPosition=1;
+            if (offsetPosition > 1) {
+                offsetPosition = 1;
+            } else if (offsetPosition < -1) {
+                offsetPosition = -1;
             }
             mRecyclerView.smoothScrollToPosition(layoutManager.getReverseLayout() ?
                     currentPosition - offsetPosition : currentPosition + offsetPosition);
@@ -133,7 +135,9 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
 
     /**
      * 添加监听
-     * @throws IllegalStateException 重复添加异常
+     *
+     * @throws IllegalStateException
+     *         重复添加异常
      */
     private void setupCallbacks() throws IllegalStateException {
         if (mRecyclerView.getOnFlingListener() != null) {

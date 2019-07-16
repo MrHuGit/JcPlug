@@ -130,6 +130,7 @@ public class BannerLayout extends FrameLayout {
             }
         }
     };
+    private int indicatorGravity;
 
 
     public BannerLayout(@NonNull Context context) {
@@ -162,6 +163,7 @@ public class BannerLayout extends FrameLayout {
         autoPlaying = a.getBoolean(R.styleable.BannerLayout_autoPlaying, true);
         indicatorSelectedDrawable = a.getDrawable(R.styleable.BannerLayout_indicatorSelectedDrawable);
         indicatorUnselectedDrawable = a.getDrawable(R.styleable.BannerLayout_indicatorUnselectedDrawable);
+        indicatorGravity = a.getInt(R.styleable.BannerLayout_indicatorGravity,Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM);
         itemSpace = a.getInt(R.styleable.BannerLayout_itemSpace, ConvertUtils.dp2px(10f));
         centerScale = a.getFloat(R.styleable.BannerLayout_centerScale, 1.4f);
         moveSpeed = a.getFloat(R.styleable.BannerLayout_moveSpeed, 1.0f);
@@ -198,6 +200,7 @@ public class BannerLayout extends FrameLayout {
         //指示器部分
         mIndicatorRecyclerView = new RecyclerView(mContext);
         LinearLayoutManager indicatorLayoutManager = new LinearLayoutManager(mContext);
+        indicatorLayoutManager.setOrientation(mOrientation);
         mIndicatorRecyclerView.setLayoutManager(indicatorLayoutManager);
         if (indicatorSelectedDrawable == null) {
             //绘制默认选中状态图形
@@ -219,7 +222,7 @@ public class BannerLayout extends FrameLayout {
         }
 
         LayoutParams indicatorLayoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        indicatorLayoutParams.gravity = Gravity.BOTTOM;
+        indicatorLayoutParams.gravity = indicatorGravity;
         indicatorLayoutParams.setMargins(indicatorMarginLeft, 0, indicatorMarginRight, indicatorMarginBottom);
         addView(mIndicatorRecyclerView, indicatorLayoutParams);
         if (!showIndicator) {

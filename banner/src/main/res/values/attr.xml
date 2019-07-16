@@ -28,6 +28,16 @@
         <attr name="indicatorSelectedDrawable" format="reference"/>
         <!--指示器未选中时Drawable-->
         <attr name="indicatorUnselectedDrawable" format="reference"/>
+        <attr name="indicatorGravity">
+            <flag name="center" value="0x0011"/>
+            <flag name="center_horizontal" value="0x0001"/>
+            <flag name="center_vertical" value="0x0010"/>
+            <flag name="top" value="0x0030"/>
+            <flag name="bottom" value="0x0050"/>
+            <flag name="left" value="0x0003"/>
+            <flag name="right" value="0x0005"/>
+        </attr>
+
         <!--居中图片放大倍数-->
         <attr name="centerScale" format="float"/>
         <!--移动速度-->
