@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--轮播时间间隔-->
+    <attr name="playingIntervalTime" format="integer"/>
+    <!--是否自动轮播-->
+    <attr name="autoPlaying" format="boolean"/>
+    <!--是否显示指示器-->
+    <attr name="showIndicator" format="boolean"/>
+    <!--方向-->
+    <attr name="orientation" format="enum">
+        <enum name="horizontal" value="0"/>
+        <enum name="vertical" value="1"/>
+    </attr>
+
+    <!--<declare-styleable name="RecyclerViewBannerBase">-->
+    <!--<attr name="playingIntervalTime"/>-->
+    <!--<attr name="showIndicator"/>-->
+    <!--<attr name="orientation"/>-->
+    <!--<attr name="autoPlaying"/>-->
+    <!--<attr name="indicatorSelectedSrc" format="color|reference"/>-->
+    <!--<attr name="indicatorUnselectedSrc" format="color|reference"/>-->
+    <!--<attr name="indicatorSpace" format="dimension|reference"/>-->
+    <!--<attr name="indicatorMarginLeft" format="dimension|reference"/>-->
+    <!--<attr name="indicatorMarginRight" format="dimension|reference"/>-->
+    <!--<attr name="indicatorMarginBottom" format="dimension|reference"/>-->
+    <!--<attr name="indicatorGravity" format="enum">-->
+    <!--<enum name="left" value="0"/>-->
+    <!--<enum name="center" value="1"/>-->
+    <!--<enum name="right" value="2"/>-->
+    <!--</attr>-->
+    <!--</declare-styleable>-->
+
+    <declare-styleable name="BannerLayout">
+        <!--轮播时间间隔-->
+        <attr name="playingIntervalTime"/>
+        <!--是否自动轮播-->
+        <attr name="autoPlaying"/>
+        <!--是否显示指示器-->
+        <attr name="showIndicator"/>
+        <!--方向-->
+        <attr name="orientation"/>
+        <!--图片间距-->
+        <attr name="itemSpace" format="integer"/>
+        <!--指示器选中时Drawable-->
+        <attr name="indicatorSelectedDrawable" format="reference"/>
+        <!--指示器未选中时Drawable-->
+        <attr name="indicatorUnselectedDrawable" format="reference"/>
+        <!--居中图片放大倍数-->
+        <attr name="centerScale" format="float"/>
+        <!--移动速度-->
+        <attr name="moveSpeed" format="float"/>
+        <attr name="indicatorMarginLeft" format="dimension|reference"/>
+        <attr name="indicatorMarginRight" format="dimension|reference"/>
+        <attr name="indicatorMarginBottom" format="dimension|reference"/>
+    </declare-styleable>
+
+
+</resources>
