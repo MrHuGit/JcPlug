@@ -43,7 +43,7 @@ public class BannerLayout extends FrameLayout {
     /**
      * 是否显示指示器
      */
-    private boolean showIndicator=true;
+    private boolean showIndicator = true;
     /**
      * 指示器间隔
      */
@@ -219,12 +219,13 @@ public class BannerLayout extends FrameLayout {
         }
 
         LayoutParams indicatorLayoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        indicatorLayoutParams.gravity = Gravity.BOTTOM ;
+        indicatorLayoutParams.gravity = Gravity.BOTTOM;
         indicatorLayoutParams.setMargins(indicatorMarginLeft, 0, indicatorMarginRight, indicatorMarginBottom);
         addView(mIndicatorRecyclerView, indicatorLayoutParams);
         if (!showIndicator) {
             mIndicatorRecyclerView.setVisibility(GONE);
         }
+
     }
 
 
@@ -360,6 +361,21 @@ public class BannerLayout extends FrameLayout {
         mIndicatorAdapter.setIndicatorData(indicatorData);
         mIndicatorRecyclerView.setAdapter(mIndicatorAdapter);
         mIndicatorAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 修改数据后的更新
+     */
+    public void notifyDataSetChanged() {
+        RecyclerView.Adapter imageAdapter = mImageRecyclerView.getAdapter();
+        if (imageAdapter != null) {
+            mImageItemCount = imageAdapter.getItemCount();
+            mLayoutManager.setInfinite(mImageItemCount >= 3);
+            setPlaying(true);
+            IndicatorData indicatorData = new IndicatorData(indicatorSelectedDrawable, indicatorUnselectedDrawable, mImageItemCount);
+            mIndicatorAdapter.setIndicatorData(indicatorData);
+            mIndicatorAdapter.notifyDataSetChanged();
+        }
 
     }
 
