@@ -23,7 +23,7 @@
         <!--方向-->
         <attr name="orientation"/>
         <!--图片间距-->
-        <attr name="itemSpace" format="integer"/>
+        <attr name="imageItemSpace" format="dimension|reference"/>
         <!--指示器选中时Drawable-->
         <attr name="indicatorSelectedDrawable" format="reference"/>
         <!--指示器未选中时Drawable-->
@@ -42,6 +42,8 @@
         <attr name="centerScale" format="float"/>
         <!--移动速度-->
         <attr name="moveSpeed" format="float"/>
+        <!--指示器相互之间相隔间距-->
+        <attr name="indicatorItemSpace" format="dimension|reference"/>
         <attr name="indicatorMarginLeft" format="dimension|reference"/>
         <attr name="indicatorMarginRight" format="dimension|reference"/>
         <attr name="indicatorMarginBottom" format="dimension|reference"/>

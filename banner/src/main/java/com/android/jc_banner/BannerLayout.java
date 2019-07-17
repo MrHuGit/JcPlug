@@ -92,7 +92,7 @@ public class BannerLayout extends FrameLayout {
     /**
      * image item间距
      */
-    private int itemSpace;
+    private int imageItemSpace;
     private final static int AUTO_PLAY_WHAT = 1;
     private BannerLayoutManager mLayoutManager;
     private Handler mHandler = new Handler(new Handler.Callback() {
@@ -131,6 +131,7 @@ public class BannerLayout extends FrameLayout {
         }
     };
     private int indicatorGravity;
+    private int indicatorItemSpace;
 
 
     public BannerLayout(@NonNull Context context) {
@@ -164,7 +165,8 @@ public class BannerLayout extends FrameLayout {
         indicatorSelectedDrawable = a.getDrawable(R.styleable.BannerLayout_indicatorSelectedDrawable);
         indicatorUnselectedDrawable = a.getDrawable(R.styleable.BannerLayout_indicatorUnselectedDrawable);
         indicatorGravity = a.getInt(R.styleable.BannerLayout_indicatorGravity,Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM);
-        itemSpace = a.getInt(R.styleable.BannerLayout_itemSpace, ConvertUtils.dp2px(10f));
+        imageItemSpace = a.getDimensionPixelSize(R.styleable.BannerLayout_imageItemSpace, ConvertUtils.dp2px(10f));
+        indicatorItemSpace = a.getDimensionPixelSize(R.styleable.BannerLayout_indicatorItemSpace, ConvertUtils.dp2px(10f));
         centerScale = a.getFloat(R.styleable.BannerLayout_centerScale, 1.4f);
         moveSpeed = a.getFloat(R.styleable.BannerLayout_moveSpeed, 1.0f);
         int orientation = a.getInt(R.styleable.BannerLayout_orientation, OrientationHelper.HORIZONTAL);
@@ -192,7 +194,7 @@ public class BannerLayout extends FrameLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         addView(mImageRecyclerView, imageRvLayoutParams);
         mLayoutManager = new BannerLayoutManager(mContext, mOrientation);
-        mLayoutManager.setItemSpace(itemSpace);
+        mLayoutManager.setItemSpace(imageItemSpace);
         mLayoutManager.setCenterScale(centerScale);
         mLayoutManager.setMoveSpeed(moveSpeed);
         mImageRecyclerView.setLayoutManager(mLayoutManager);
@@ -287,12 +289,12 @@ public class BannerLayout extends FrameLayout {
     /**
      * 设置图片间距
      *
-     * @param itemSpace
+     * @param imageItemSpace
      *         图片间距
      */
-    public void setItemSpace(int itemSpace) {
-        this.itemSpace = itemSpace;
-        mLayoutManager.setItemSpace(itemSpace);
+    public void setImageItemSpace(int imageItemSpace) {
+        this.imageItemSpace = imageItemSpace;
+        mLayoutManager.setItemSpace(imageItemSpace);
     }
 
     /**
@@ -360,7 +362,7 @@ public class BannerLayout extends FrameLayout {
         mImageRecyclerView.addOnScrollListener(mOnScrollListener);
 
         mIndicatorAdapter = indicatorAdapter;
-        IndicatorData indicatorData = new IndicatorData(indicatorSelectedDrawable, indicatorUnselectedDrawable, mImageItemCount);
+        IndicatorData indicatorData = new IndicatorData(indicatorSelectedDrawable, indicatorUnselectedDrawable, mImageItemCount,indicatorItemSpace);
         mIndicatorAdapter.setIndicatorData(indicatorData);
         mIndicatorRecyclerView.setAdapter(mIndicatorAdapter);
         mIndicatorAdapter.notifyDataSetChanged();
@@ -375,7 +377,7 @@ public class BannerLayout extends FrameLayout {
             mImageItemCount = imageAdapter.getItemCount();
             mLayoutManager.setInfinite(mImageItemCount >= 3);
             setPlaying(true);
-            IndicatorData indicatorData = new IndicatorData(indicatorSelectedDrawable, indicatorUnselectedDrawable, mImageItemCount);
+            IndicatorData indicatorData = new IndicatorData(indicatorSelectedDrawable, indicatorUnselectedDrawable, mImageItemCount,indicatorItemSpace);
             mIndicatorAdapter.setIndicatorData(indicatorData);
             mIndicatorAdapter.notifyDataSetChanged();
         }

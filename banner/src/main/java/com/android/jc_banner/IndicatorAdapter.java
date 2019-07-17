@@ -29,8 +29,8 @@ public class IndicatorAdapter extends BaseIndicatorAdapter<IndicatorAdapter.Indi
         ImageView bannerPoint = new ImageView(mContext);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        int indicatorMargin = ConvertUtils.dp2px(8f);
-        lp.setMargins(indicatorMargin / 2, indicatorMargin / 2, indicatorMargin / 2, indicatorMargin / 2);
+        int indicatorMargin = mIndicatorData.getIndicatorItemSpace();
+        lp.setMargins(indicatorMargin / 2, 0, indicatorMargin / 2, 0);
         bannerPoint.setLayoutParams(lp);
         return new IndicatorAdapter.IndicatorViewHolder(bannerPoint);
     }
@@ -61,6 +61,7 @@ public class IndicatorAdapter extends BaseIndicatorAdapter<IndicatorAdapter.Indi
 
     static class IndicatorViewHolder extends RecyclerView.ViewHolder {
         private ImageView indicatorImageView;
+
         private IndicatorViewHolder(@NonNull ImageView indicatorImageView) {
             super(indicatorImageView);
             this.indicatorImageView = indicatorImageView;

@@ -12,11 +12,21 @@ public class IndicatorData {
     private Drawable selectedDrawable;
     private Drawable unselectedDrawable;
     private int itemCount;
+    private int indicatorItemSpace;
 
-    public IndicatorData(Drawable selectedDrawable, Drawable unselectedDrawable, int itemCount) {
+    public int getIndicatorItemSpace() {
+        return indicatorItemSpace;
+    }
+
+    public void setIndicatorItemSpace(int indicatorItemSpace) {
+        this.indicatorItemSpace = indicatorItemSpace;
+    }
+
+    public IndicatorData(Drawable selectedDrawable, Drawable unselectedDrawable, int itemCount, int indicatorItemSpace) {
         this.selectedDrawable = selectedDrawable;
         this.unselectedDrawable = unselectedDrawable;
         this.itemCount = itemCount;
+        this.indicatorItemSpace = indicatorItemSpace;
     }
 
     public Drawable getSelectedDrawable() {
