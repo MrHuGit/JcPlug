@@ -1,5 +1,7 @@
 package com.android.jc_banner;
 
+import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -18,8 +20,6 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
-import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
 /**
  * @author Mr.Hu(Jc) JcPlug
@@ -93,6 +93,8 @@ public class BannerLayout extends FrameLayout {
      * image item间距
      */
     private int imageItemSpace;
+    private int indicatorGravity;
+    private int indicatorItemSpace;
     private final static int AUTO_PLAY_WHAT = 1;
     private BannerLayoutManager mLayoutManager;
     private Handler mHandler = new Handler(new Handler.Callback() {
@@ -130,8 +132,6 @@ public class BannerLayout extends FrameLayout {
             }
         }
     };
-    private int indicatorGravity;
-    private int indicatorItemSpace;
 
 
     public BannerLayout(@NonNull Context context) {
