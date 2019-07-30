@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--item菜单总宽度tag-->
+    <item name="itemMenuTotalWidthTag" type="id"/>
+    <!--item菜单宽度数组tag-->
+    <item name="itemMenuWidthArraysTag" type="id"/>
+    <!--item动画tag-->
+    <item name="itemAnimatorTag" type="id"/>
+</resources>

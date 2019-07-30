@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@mipmap/ic_launcher_round"
+        android:drawableStart="@mipmap/ic_launcher_round"
+        android:background="#FFFFFF"
+        android:textAlignment="viewStart"
+        android:gravity="center_vertical|start" />
+    <FrameLayout
+        android:layout_width="1000dp"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFA500">
+
+            <TextView
+                android:id="@+id/button_rename"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="rename"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF0000">
+
+            <TextView
+                android:id="@+id/button_delete"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="删除"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00BFFF">
+
+            <TextView
+                android:id="@+id/button_top"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="TOP"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>

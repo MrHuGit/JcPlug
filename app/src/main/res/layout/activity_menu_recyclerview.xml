@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Mr.Hu(Jc)-->
+<!--<com.android.jc.recyclerview.menu.SlidingItemMenuRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/sliding_menu_recycler_view"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:scrollbars="vertical"-->
+    <!--app:itemMenuScrollDuration="600"-->
+    <!--app:itemMenuScrollingEnabled="true"/>-->
+
+
+
+<com.android.jc.recyclerview.menu.MenuRecyclerView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/sliding_menu_recycler_view"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:scrollbars="vertical"
+app:itemScrollDuration="600"
+app:itemScrollingEnabled="true"/>
+

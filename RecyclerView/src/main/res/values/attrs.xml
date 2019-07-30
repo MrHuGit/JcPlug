@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MenuRecyclerView">
+        <attr name="itemScrollingEnabled" format="boolean" />
+        <attr name="itemScrollDuration" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SlidingItemMenuRecyclerView">
+        <attr name="itemMenuScrollingEnabled" format="boolean" />
+        <attr name="itemMenuScrollDuration" format="integer" />
+    </declare-styleable>
+
+</resources>

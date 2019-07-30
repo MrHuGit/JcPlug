@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion defaultConfigs.compileSdkVersion
@@ -24,14 +24,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.support.recyclerview
     implementation deps.support.appcompat
-    implementation deps.support.design
-    implementation deps.glide
-    implementation project(path: ':RecyclerView')
-
-
 }
