@@ -1,9 +1,9 @@
 package com.android.jcplug.recyclerview.menu;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.jc.recyclerview.decoration.RvDividerItemDecoration;
 import com.android.jc.recyclerview.menu.MenuRecyclerView;
 import com.android.jcplug.R;
 
@@ -38,9 +39,16 @@ public class MenuRecyclerViewActivity extends AppCompatActivity {
      * 初始化数据
      */
     private void initData() {
-        slidingMenuRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        slidingMenuRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         slidingMenuRecyclerView.setAdapter(new MenuAdapter());
-        slidingMenuRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        slidingMenuRecyclerView.addItemDecoration(RvDividerItemDecoration.builder()
+                .setDividerDistance(5)
+//                .setOffsetLeft(50)
+//                .setOffsetRight(50)
+                .setOrientation(LinearLayoutManager.VERTICAL)
+                .setDividerType(RvDividerItemDecoration.DividerType.MID)
+                .setDividerColor(Color.parseColor("#f3f345"))
+                .build(this));
     }
 
     /**
@@ -52,7 +60,7 @@ public class MenuRecyclerViewActivity extends AppCompatActivity {
 
 
     private static class MenuAdapter extends RecyclerView.Adapter<MenuAdapterHolder>{
-        int itemCount = 5;
+        int itemCount =100;
         @NonNull
         @Override
         public MenuAdapterHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

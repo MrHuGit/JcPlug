@@ -111,16 +111,15 @@ public abstract class BaseSameDataAdapter<D> extends RvTypeAdapter {
     /**
      * 设置数据
      *
-     * @param typeList 数据list
+     * @param dataList 数据list
      * @return 当前对象
      */
-    public BaseSameDataAdapter setList(List<D> typeList) {
+    public BaseSameDataAdapter setList(List<D> dataList) {
         removeItemType(LOADING_ITEM_TYPE);
         removeItemType(EMPTY_ITEM_TYPE);
-        mList = typeList;
+        mList = dataList;
         super.setList(DATA_ITEM_TYPE, mList);
-
-        if (typeList == null || typeList.size() < 1) {
+        if (dataList == null || dataList.size() < 1) {
             showEmpty();
         }
         return this;
